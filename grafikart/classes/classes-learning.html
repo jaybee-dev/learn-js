@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/main.css">
+    <title>Les classes - Learning Grafikart</title>
+    <h1>Les classes - Learning Grafikart</h1>
+<script>
+
+const moyenne = (notes) => {
+    let sum = 0
+    for (let note of notes) {
+        sum = sum + note
+    }
+    return sum / notes.length
+}
+
+    class Student {
+        ecole = 'Jules Ferry'
+        _notes = []
+
+        constructor (firstname, lastname) {
+            this.firstname = firstname
+            this.lastname = lastname
+    }
+
+    set notes (v) {
+        if (Array.isArray(v)) { // permet de vérifier si c'est bien un tableau
+            this._notes = v
+        } 
+    }
+
+    get name () { // pas de paramètres à définir car pour y accéder on pourra simplement faire 'john.name'
+        return `${this.firstname} ${this.lastname}`
+    }
+
+    set spec (v) {
+        this._spec = v
+    }
+
+    canPass () {
+        return moyenne(this._notes) >= 10
+    }
+
+    static moyenne = 10
+
+}
+
+
+
+const john = new Student('John', 'Doe')
+const jane = new Student('Jane', 'Bloom')
+console.log(john, jane)
+console.log(john.canPass(), jane.canPass())
+console.log(john.name)
+john.notes = [10, 8, 9]
+jane.notes = [20, 19, 18]
+john.spec = 'Maths'
+jane.spec = 'Français'
+
+class SuperStudent extends Student {
+
+    get name () { 
+        return 'Super ' + super.name //le mot-clé 'super' ira chercher la méthode 'name' parente
+    }
+
+    canPass () {
+        return true //bypass le comportement de la classe Student, et sera donc toujours à 'true' quoiqu'il arrive
+    }
+
+}
+
+</script>
+</head>
+<body>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/2HAPViIAYjc?si=qcRTGSnXgER9KX7E" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</body>
+</html>

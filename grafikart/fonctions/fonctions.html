@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <script>
+
+//#######
+// TP 001
+//#######
+
+// On crée un nombre entre 0 & 10
+// 3 essais max pour deviner le nombre
+// fonction isRight(n) ; renvoi true ou false si l'utilisateur à juste ou faux
+// fonction guess() ; demande à l'utilisateur d'entrer un nombre et renvoi true ou false
+
+/*  function getRandomInt(max) {
+    return Math.floor(Math.random() * max)
+}
+
+const toGuess = getRandomInt(10)
+console.log(toGuess)
+
+function isRight(n) {
+    return toGuess === n
+}
+
+function guess() {
+    const n = Number(prompt("Enter the first number : "));
+    return isRight(n)
+}
+
+
+for (let i = 0; i < 3; i++) {
+        if (guess() === true) {
+            console.log('Vous avez trouvé le bon nombre ! Félicitations')
+            break
+        } else { 
+            console.log('Faux !') }
+} */
+
+//#######
+// TP 002
+//#######
+
+/* Créer une fonction qui vérifie que le nombre passé est bien un nombre premier
+Cette fonction retournera 'true' ou 'false' */
+
+/* function isPremier(n) {
+    if (n < 2) {
+        return false
+    }
+    for (let i = n - 1; i > 1; i--) {
+        if (n % i === 0) {
+            return false
+        }
+    }
+    return true
+}
+
+const guessPremier = prompt("Entrez un nombre")
+
+console.log('Le chiffre',guessPremier, isPremier(guessPremier)) */
+
+//#######
+// TP 003
+//#######
+
+// Créer une fonction qui permettra de tester si un mot est un palindrome (comme "KAYAK") qui renverra 'true' ou 'false'
+
+/* function isPalindrome(word) {
+    // toUpperCase - transforme tous les caractères en majuscules    
+
+    // split - divise une chaine de caractères en liste ordonnée de sous-chaînes et les place dans un tableau
+        // const strCopy = str.split();
+        // console.log(strCopy);
+        // Expected output: Array ["The quick brown fox jumps over the lazy dog."]
+
+    // join - crée et renvoie une nouvelle chaîne de caractères en concaténant tous les éléments d'un tableau
+        // console.log(elements.join(''));
+        // Expected output: "FireAirWater"
+
+     // reverse - transpose les élements d'un tableau ; le 1er devient le dernier et vice et versa
+
+const reverseWord = word
+        .split('')
+        .reverse()
+        .join('')
+    return word.toUpperCase() === reverseWord.toUpperCase()
+}
+
+const words = {
+    kayak: true,
+    SOS: true,
+    Kayak: true,
+    Bonjour: false,
+}
+
+for(let word in words) {
+    if (isPalindrome(word) !== words[word]) {
+        console.error(`isPalindrome (${word}) aurait du renvoyer (${this.words})`)
+    } console.log('OK')
+} */
+
+
+/* const students = [
+    {
+        name: 'John',
+        notes: [1, 20, 18, 19, 12]
+    },
+    {
+        name: 'Jane',
+        notes: [17, 18, 20, 13, 15]
+    },
+    {
+        name: 'Sophie',
+        notes: [17, 12, 14, 15, 13]
+    },
+    {
+        name: 'Marc',
+        notes: [2, 3, 5, 8, 9]
+    },
+    {
+        name: 'Manon',
+        notes: [18, 17, 18, 19, 12]
+    }
+]
+
+
+function calculerMoyenne() {
+    for (const element of students) {
+        for (let i = 0; i < element.notes.length; i++) {
+            let total = element.notes.forEach(element.notes)
+            console.log(total)
+        }
+    }
+}
+
+calculerMoyenne() */
+
+const phrase = "Vous savez, moi je ne pense pas qu'il y ai de bonne ou de mauvaise situation."
+ 
+
+ 
+ 
+ 
+ </script>
+
+
+</head>
+<body>
+    
+</body>
+</html>

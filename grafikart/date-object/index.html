@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/main.css">
+    <title>L'objet Date - Learning Grafikart</title>
+    <h1>L'objet Date - Learning Grafikart</h1>
+
+
+<script>
+
+/*
+L'objet 'Date' est représenté sous forme d'un nombre depuis appelé 'Timestamp'
+Le 'Timestamp' est le nombre de millisecondes écoulée depuis le 1er janvier 1970 
+*/
+
+// sans timestamp, sera par défault au moment présent
+console.log('new Date():',new Date())
+
+// Timestamp de 10 millisecondes
+console.log('new Date(10):',new Date(10))
+
+// Timestamp du 1er janvier 2022 ; le mois étant un index partant de zéro, donc '0' pour 'janvier'
+console.log('new Date(2022, 0, 1):',new Date(2022, 0, 1))
+
+// Formatage local avec uniquement la date
+console.log('new Date().toLocaleDateString():',new Date().toLocaleDateString())
+
+// Formatage local avec l'emplacement spécifié
+console.log("new Date().toLocaleDateString('en-US'):",new Date().toLocaleDateString('en-US'))
+
+// Formatage local avec la date et le heure
+console.log('new Date().toLocaleString():',new Date().toLocaleString())
+
+// Formatage local avec uniquement l'heure
+console.log('new Date().toLocaleTimeString():',new Date().toLocaleTimeString())
+
+</script>
+</head>
+<body>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/AD28PddTwEE?si=QGnKpM_-A8thOxFT" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date">DOCUMENTATION MDN</a>
+</body>
+</html>

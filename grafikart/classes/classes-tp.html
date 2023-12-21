@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classes - TP</title>
+
+<script>
+
+//###################
+// TP 001 - Géométrie
+//###################
+
+// Créer une classe 'Rectangle' initialisée avec une hauteur et une largeur
+// Créer un getter 'perimeter' qui calculera le périmètre du rectangle (lx2 + Lx2)
+// Méthode 'isValid()' afin de vérfier si notre forme est valide qui renverra 'false' si la valeur est négative
+
+/* class Rectangle {
+    constructor (width, height) {
+        this.width = width
+        this.height = height
+    }
+
+    get perimeter () {
+        return (this.width * 2) + (this.height * 2)
+    }
+
+    get isValid () {
+        return (this.width > 0) && (this.height > 0)
+    }
+    
+    isBiggerThan (shape) {
+        return this.perimeter > shape.perimeter
+}
+
+}
+
+// Créer une classe 'Square' en utilisant extend pour réutiliser ce qu'on a déjà utilisé pour les rectangles
+// Créer une méthode 'isBiggerThan()' disponible pour les carrés et les rectangles qui permettra de vérifier si la forme est plus grande ou plus petite
+// (on comparera donc tout simplement les périmètres)
+
+class Square extends Rectangle {
+    
+//Mon code (fonctionnel)
+//    get perimeter () {
+//        return this.width * 4
+//    }
+
+    // Le code solution
+    constructor(width) {
+        super(width, width);
+        
+    }
+}
+
+
+
+const r = new Rectangle(100, 20);
+console.log(r.perimeter) // 60
+console.log(r.isValid) // true
+const r2 = new Rectangle(-10, 20);
+console.log(r2.isValid) // false
+const c = new Square(1000); 
+console.log(c.perimeter) // 40
+console.log(c.isBiggerThan(r)) // true
+// console.log(isBiggerThan()) */
+
+//########################
+// TP 001 - Bibliothécaire
+//########################
+
+// Créer une classe 'Book' qui représente un livre ; titre et nombre de pages
+// Méthode pour récupérer la page sur laquelle on est actuellement (un getter ?) - Par défaut page n°1
+// Méthode 'nextPage' qui permettra de tourner la page
+// Méthode 'close' permettant de fermer le livre (réinitialise la page, et permet de revenir à 1)
+
+class Book {
+    
+    #page = 1
+    
+    constructor (title, pages) {
+        this.title = title
+        this.pages = pages
+    }
+
+    get page () {
+        return this.#page
+    }
+
+    nextPage () {
+        if (this.#page < this.pages) {
+            this.#page++
+        }
+    }
+
+    close () {
+        this.#page = 1
+    }
+}
+
+
+const b = new Book('Seigneur des anneaux', 200);
+console.log(b.page)
+b.nextPage()
+console.log(b.page)
+b.close()
+console.log(b.page)
+
+
+// Créer une classe 'Library' qui permet de ranger les livres
+// Méthode 'addBook' qui permettra de rajouter un seul livre
+// Méthode 'addBooks' prenant en paramètre un tableau de livres permettant de rajouter tous les livres
+// Méthode 'findBooksByLetter' prenant en paramètre une lettre et qui trouve tous les livres qui commencent à la lettre (en l'occurence 'S')
+
+class Library {
+    
+    #books = []
+    
+    addBook(book) {
+        this.#books.push(book)
+    }
+
+    addBooks(books) {
+        for (let book of books) {        
+            this.addBook(book) }
+    }
+
+    findBooksByLetter(letter) {
+ 
+        // version de base
+        /* const found = []
+        for (let book of this.#books) {   
+            if (book.title[0].toLowerCase() === letter.toLowerCase()) {
+                found.push(book)
+            }
+        }
+        return found */
+
+        // version optimisée
+        return this.#books.filter((book) => book.title[0].toLowerCase() === letter.toLowerCase()
+        )
+
+    }
+}
+
+const l = new Library()
+l.addBook(b)
+l.addBooks([
+    new Book('Ready player one', 100),
+    new Book('Oui-oui', 10),
+    new Book('Sillage', 50),
+])
+console.log(l.findBooksByLetter('S')) // Possibilité d'utilise la méthode 'filter()'
+
+</script>
+
+
+
+</head>
+<body>
+    
+</body>
+</html>

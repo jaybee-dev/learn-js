@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/main.css">
+    <title>L'objet Date - Practice Grafikart</title>
+    <h1>L'objet Date - Practice Grafikart</h1>
+
+
+<script>
+
+const YEARS = 0
+const MONTHS = 1
+const DAYS = 2
+const HOURS = 3
+const MINUTES = 4
+const SECONDS = 5
+
+function addDays (date, days) {
+    // La ligne ci-dessous est primoidiale : on va créer une nouvelle date pour éviter la mutation, c'est à la modification de l'objet original
+    const newDate = new Date(date.getTime())
+    newDate.setDate(date.getDate() + days)
+    return newDate
+}
+
+function addInterval(date, n, unit) {
+    // on créé un tableau qui récupère les différentes parties de notre date
+    const parts = [
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds(),
+    ]
+    // on prend la partie du tableau passée en paramètre, et définie en amont via les constantes globales
+    // (MONTHS = 1, DAYS = 2, YEAR = 0)
+    // Et on ajoute le nombre 'n' passé en paramètre
+    parts[unit] += n
+    // Enfin, on retourne notre nouvelle date avec le spread operator
+    return new Date(...parts)
+}
+
+function addInterval2(date, interval) {
+    // on créé un tableau qui récupère les différentes parties de notre date
+    const parts = [
+        date.getFullYear(),
+        date.getMonth(),
+        date.getDate(),
+        date.getHours(),
+        date.getMinutes(),
+        date.getSeconds(),
+        date.getMilliseconds(),
+    ]
+    // 'Object.entries' renvoi un tableau des props d'un objet sous la forme '[clé, valeur]'
+    for (const [unit, value] of Object.entries(interval)) {
+        parts[unit] += value
+    }
+    // Enfin, on retourne notre nouvelle date avec le spread operator
+    return new Date(...parts)
+}
+
+const today = new Date();
+const tomorrow = addDays(today, 1)
+const future = addInterval(today, 3, MONTHS)
+const future2 = addInterval2(today, {
+    [MONTHS]: 2,
+    [DAYS]: 1,
+    [MINUTES]: 7
+})
+
+console.log('Today:',today)
+console.log('Tomowrrow:',tomorrow)
+console.log('Future:', future)
+console.log('Future2:', future2)
+console.log('Temps entre future2 et maintenant',(future2.getTime() - Date.now()) / 1000)
+
+</script>
+</head>
+<body>
+    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/Date">DOCUMENTATION MDN</a>
+</body>
+</html>

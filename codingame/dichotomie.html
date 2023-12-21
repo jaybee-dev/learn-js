@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dichotomie</title>
+
+<script>
+
+function compare(a, b) {
+  return a - b;
+}
+
+
+// init array
+const array =  [-2, 88, -13, 128, 45, 56, -79, 84, 950, 1002, -50, 21, 3]
+console.log('Base array (const array):',array)
+
+// sort array and place in variable
+const sortedArray = array.sort(function compare(a, b) {
+    return a -b
+})
+console.log('Array sorted (const sortedArray):', sortedArray)
+
+// Nb to find
+const nbToFind = Number(prompt('Quel nombre souhaitez-vous rechercher ?'))
+console.log('Nb to find:', nbToFind)
+
+let min = 0
+    console.log('Base min (let min):',min)
+
+    let max = sortedArray.length-1
+    console.log('Base max (let max => sortedArray.length-1):',max)
+
+
+
+
+function binarySearch() {
+
+let mid = 0
+
+    //for (let i=0; i<5; i++) {
+        console.log('Min at start:',min)
+        console.log('Max at start:',max)
+        //console.log('Mid at start:',mid)
+
+
+    while (nbToFind != sortedArray[mid] && max != 1) {
+
+        mid = Math.round( (min+max) / 2)
+        console.log('Base mid (let mid => min+max / 2 => mid of array):',mid)
+        console.log('sortedArray[mid]:',sortedArray[mid])
+
+            if (nbToFind === sortedArray[mid]) {
+                console.log('Found!', nbToFind)
+            } else if (sortedArray[mid] < nbToFind) {
+                min = mid + 1
+                console.log('Action: min = mid +1')
+                console.log('Mid in sortedArray[mid] < nbToFind:',sortedArray[mid])
+                console.log('Min in sortedArray[mid] < nbToFind:',min)
+            } else if (sortedArray[mid] > nbToFind) {
+                max = mid - 1
+                console.log('Action: max = mid -1')
+                console.log('Mid in sortedArray[mid] > nbToFind:',sortedArray[mid])
+                console.log('Max in sortedArray[mid] > nbToFind:',max)
+            }
+        //}
+    }
+
+}
+
+binarySearch(sortedArray, nbToFind)
+
+// tant que : min <= max
+
+/*for (let i=0; i<5; i++) {
+    
+    if (x === sortedArray[mid]) {
+        console.log('Found!', x)
+    } else if (sortedArray[mid] < x) {
+        min = sortedArray[mid] + 1
+        console.log('Action: min = mid +1')
+        console.log('Mid in sortedArray[mid] < x:',sortedArray[mid])
+        console.log('Min in sortedArray[mid] < x:',min)
+    } else if (sortedArray[mid] > x) {
+        max = sortedArray[mid] - 1
+        console.log('Action: max = mid -1')
+        console.log('Mid in sortedArray[mid] > x:',sortedArray[mid])
+        console.log('Max in sortedArray[mid] > x:',max)
+    }
+} */
+
+
+
+
+</script>
+
+</head>
+<body>
+    <h1>Bac à sable sur la recherche par dichotomie (sorties en console)</h1>
+    
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/main.css">
+    <title>Fonctions usuelles - Learning Grafikart</title>
+
+<script>
+
+/////////
+// Map //
+/////////
+
+/*
+Cette méthode prend en 1er paramètre une fonction qui va permettre d'altérer les élements (une transformation).
+
+*/
+
+// MDN exemple
+const array1 = [1, 4, 9, 16];
+// Pass a function to map
+const map1 = array1.map((x) => x * 2);
+console.log(map1); // Expected output: Array [2, 8, 18, 32]
+
+// Autre exemple
+const persons = [
+    {firstname: 'John', lastname: 'Doe'},
+    {firstname: 'Jane', lastname: 'Doe'},
+    {firstname: 'Marc', lastname: 'Doe'},
+    {firstname: 'Manon', lastname: 'Doe'}
+]
+console.log(
+    persons
+        .map((p) => p.firstname + ' ' + p.lastname)
+        .join('\n')
+        )
+// Expected output:
+/* 
+John Doe
+Jane Doe
+Marc Doe
+Manon Doe
+*/
+     
+////////////
+// Filter //
+////////////
+/* 
+Permet de filtrer les résultats (besoin de supprimer des élements dans un tableau)
+Dans l'exemple ci-dessous, on souhaite récupérer les valeurs en dessous de 10.
+On serait tenté de créer un tableau, faire une boucle et de rajouter des élemnets dans le nouveau tableau.
+La méthode 'filter' va nous permettre de faire les choses en 1 seule fois :
+
+Créons une variable avec en valeur le tableau, suivit de la méthode 'filter'.
+Cette méthode prend en 1er paramètre chaque élement du tableau ('note') et qui retournera 'true' si on garde la valeur, et 'false' si non.
+Dans l'exemple, on demande de ne retourner que si la note est supérieure ou égale à 10.
+*/
+
+const notes2 = [20, 12, 17, 9, 8]
+const goodNotes = notes2.filter((note) => note >=10)
+console.log(goodNotes) // Excepted : [20, 12, 17]
+
+////////////
+// Reduce //
+////////////
+
+const notes3 = [12, 18, 19]
+console.log(
+
+    // Version 'basique'
+    // notes.reduce((acc, note) => {
+    //      return acc + note
+    // }, 0)
+
+    // Version réduite
+    notes3.reduce((acc, note) => acc + note, 0) // Excepted : 49
+)
+
+/*
+Prend en 1er paramètre un callback.
+Ce callback aura 2 paramètres : en 1er un accumulateur (généralement 'acc') et en 2nd la valeur courante.
+Dans la fonction, on va retourner une valeur, à savoir l'accumulateur auquel on rajoute la note courante, et ce autant de fois qu'il y a de valeurs dans le tableau.
+Prend en 2ème paramètre une valeur de départ (ici '0') et qui sera placée dans l'accumulateur.
+*/
+
+</script>
+
+
+</head>
+<body>
+    
+</body>
+</html>
+

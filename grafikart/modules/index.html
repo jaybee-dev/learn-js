@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/main.css">
+    <title>Les modules - Learning Grafikart</title>
+    <h1>Les modules - Learning Grafikart</h1>
+
+
+<script type="module">
+import {sum} from './array.js'
+
+// on peut renommer un module avec un alias
+import {sum as somme} from './array.js'
+
+// on peut appeler tous les exports d'un fichier dans une grosse variable (non conseillé ; essayer de plutôt importer que ce qui est nécessaire)
+import * as A from './array.js'
+
+//
+import hello from './hello.js'
+
+// ou : import {sum, default as hello} from './array.js'(
+
+console.log('sum:',sum([12, 23, 19]))
+console.log('somme:',somme([51, 15, 100]))
+console.log('A.sum',A.sum([10, 20, 30]))
+console.log('Module hello',hello())
+</script>
+</head>
+<body>
+    <iframe width="1280" height="720" src="https://www.youtube.com/embed/DJewHNOFqD0?si=G9_7OR8pUGNI-OBS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+</body>
+</html>

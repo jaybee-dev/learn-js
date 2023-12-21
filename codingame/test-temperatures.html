@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice CodinGame (JS)</title>
+
+<script>
+
+const inputs = [
+  '-5', '-4',  '-2',
+  '12', '-40', '4',
+  '2',  '18',  '11',
+  '5'
+]
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+ //const n = parseInt(readline()); // the number of temperatures to analyse
+ // inputs = readline().split(' ');
+//for (let i = 0; i < n; i++) {
+ //   const t = parseInt(inputs[i]);// a temperature expressed as an integer ranging from -273 to 5526
+//}
+
+
+// Write an answer using console.log()
+// To debug: console.error('Debug messages...');
+
+// console.log(1);
+
+//inputs.forEach((element) => console.log(element));
+
+//console.error('Nb d\'élements:', inputs.length)
+console.error('Tableau original:', inputs)
+console.error( 'Plus petit:', (Math.min(...inputs)) )
+console.error( 'Plus grand:', (Math.max(...inputs)) )
+
+// function to code 'compare'
+
+const max = inputs.length
+
+for (let i = 0; i < max-1; i++) {
+    console.error('Nb d\'élements au début de la boucle:', inputs.length)
+    if (
+        Math.abs(inputs[0]) < Math.abs(inputs[inputs.length - 1])
+        ) {
+        console.error('Last', inputs[inputs.length - 1])
+        inputs.pop()
+        console.error('Je POP (last)')
+        console.error('Tableau après POP:', inputs)
+    } else if (
+        Math.abs(inputs[0]) > Math.abs(inputs[inputs.length - 1])
+        ) { 
+        inputs.shift()
+        console.error('Je SHIFT (first)')
+        console.error('Tableau après SHIFT:', inputs)
+    } else if (
+        Math.abs(inputs[0]) === Math.abs(inputs[inputs.length - 1])
+    ) { 
+        inputs.pop()
+        console.error('Je POP car égal')
+        console.error('Tableau après POP égal:', inputs)
+    }
+
+} console.log(Math.abs(parseInt(inputs)))
+
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Practice CodinGame (JS)</title>
+
+<script>
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+ let boost = 1
+
+// game loop
+while (true) {
+    // NEVER DELETE
+    var inputs = readline().split(' ');
+    const x = parseInt(inputs[0]);
+    const y = parseInt(inputs[1]);
+    const nextCheckpointX = parseInt(inputs[2]); // x position of the next check point
+    const nextCheckpointY = parseInt(inputs[3]); // y position of the next check point
+    const nextCheckpointDist = parseInt(inputs[4]); // distance to the next checkpoint
+    const nextCheckpointAngle = parseInt(inputs[5]); // angle between your pod orientation and the direction of the next checkpoint
+    var inputs = readline().split(' ');
+    const opponentX = parseInt(inputs[0]);
+    const opponentY = parseInt(inputs[1]);
+    // -----------------------------------
+
+    // formula distance between pod & chekpoint
+    const calcDist = Math.round(Math.sqrt(Math.pow((nextCheckpointX - x), 2) + Math.pow((nextCheckpointY - y), 2)))
+    // formula distance between pod & ennemy pod
+    const distEnnemy = Math.round(Math.sqrt(Math.pow((opponentX - x), 2) + Math.pow((opponentY - y), 2)))
+    const _BOOST = 'BOOST'
+    const _FULL = 100
+
+    const maxAngle = 180
+    const formulaAnglePower = Math.trunc( ((maxAngle - Math.abs(nextCheckpointAngle)) / maxAngle) * 100 )
+
+    console.error('')
+    console.error('')
+    console.error('')
+    console.error('')
+    console.error('[MY POD] - x:', x, 'y:', y, 'Angle:', nextCheckpointAngle, 'Boost:', boost)
+    console.error('[NEXT CP] - x:', nextCheckpointX, 'y:', nextCheckpointY)
+    console.error('Distance:', nextCheckpointDist, '(',calcDist,')')
+    console.error('Ennemy dist: ', distEnnemy)
+    console.error('Formula: ', formulaAnglePower)
+
+    const freeze = function () {
+        return console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + _FULL)
+    }
+    
+    function useBoost () {
+        if (boost === 1) {
+            for (let i = 0; i < 1; i++) {
+                console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + _BOOST)
+            } boost = 0
+        }
+    }
+
+    // useBoost()
+
+    if (
+        distEnnemy <= 805
+    ) {
+        console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + '85')
+        console.error('HIT PROTECTION!')
+    } else if (
+        nextCheckpointDist > 5000 && boost === 1
+    ) {
+        useBoost()
+    } else if (
+        nextCheckpointAngle === nextCheckpointAngle &&
+        nextCheckpointDist > 1200
+    ) {
+        console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + formulaAnglePower)
+        console.error('POWER:', formulaAnglePower)
+    }  else if (
+        nextCheckpointAngle === nextCheckpointAngle &&
+        nextCheckpointDist < 1200
+    ) {
+        console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + (formulaAnglePower - 10))
+        console.error('POWER_:', formulaAnglePower - 10)
+    } 
+
+    /* if ( 
+        (nextCheckpointAngle > 90 || nextCheckpointAngle < -90) &&
+        nextCheckpointDist < 1000
+    ) {
+        (console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + '85'))
+        console.error('POWER: 85')
+        }
+        
+    else if (
+        (nextCheckpointAngle > 45 || nextCheckpointAngle < -45) &&
+        nextCheckpointDist > 1200
+    ) {
+        (console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + '88'))
+        console.error('POWER: 88')
+    }
+        
+    else if (
+        distEnnemy < 1000
+    ) {
+        console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + '95')
+        console.error('POWER: 95')
+    }
+
+    else if (
+        distEnnemy > 3500 && boost === 1
+    ) {
+        useBoost()
+        console.error('BOOST!')
+    }
+        
+    else if (
+        nextCheckpointDist > 0
+    ) {
+        (console.log(nextCheckpointX + ' ' + nextCheckpointY + ' ' + _FULL))
+        console.error('POWER:', _FULL)
+    } */
+        
+// End of the loop - don't delete       
+}
+
+////////////////////////////////////
+
+/**
+ * Auto-generated code below aims at helping you parse
+ * the standard input according to the problem statement.
+ **/
+
+ const n = parseInt(readline()); // the number of temperatures to analyse
+var inputs = readline().split(' ');
+for (let i = 0; i < n; i++) {
+    const t = parseInt(inputs[i]);// a temperature expressed as an integer ranging from -273 to 5526
+}
+
+
+// Write an answer using console.log()
+// To debug: console.error('Debug messages...');
+
+// console.log(1);
+
+//inputs.forEach((element) => console.log(element));
+
+console.error('Tableau avant:', inputs)
+
+// function to code 'compare'
+
+for (let i = 0; 1 < inputs.length; i++) {
+    if (inputs[0] < inputs[1]) {
+        inputs.shift()
+    } inputs.pop()
+} console.log(parseInt(inputs))
+
+console.error('Tableau après:', inputs)
+
+
+
+</script>
+
+</head>
+<body>
+    
+</body>
+</html>
