@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../assets/main.css">
+    <title>La méthode FETCH - Learning Grafikart</title>
+    <h1>La méthode FETCH - Learning Grafikart</h1>
+
+<script>
+
+async function fetchUsers () {
+    const r = await fetch('https://jsonplaceholder.typicode.com/users', {
+        method: 'GET',   
+        headers: {
+        "Accept": "application/json" // on indique qu'on attend du JSON
+        }
+    }) 
+    
+    if (r.ok === true) {
+        return r.json();
+    }
+    throw new Error('Impossible de contacter le serveur')
+}
+
+async function fetchPosts () {
+    const r = await fetch('https://jsonplaceholder.typicode.com/posts', {
+        method: 'POST',   
+        headers: {
+        "Accept": "application/json", // on indique qu'on attend du JSON
+        "Content-Type": "application/json"
+        },
+        body: JSON.stringify({title: 'Mon premier titre'})
+    }) 
+    
+    if (r.ok === true) {
+        return r.json();
+    }
+    throw new Error('Impossible de contacter le serveur')
+}
+
+fetchUsers().then(users => console.log('fetchUsers:',users))
+
+fetchPosts().then(posts => console.log('fetchPosts:',posts))
+
+
+// const r = fetch('https://jsonplaceholder.typicode.com/users')
+fetch('https://jsonplaceholder.typicode.com/users')// démarre le chargement d'une ressource sur le réseau et retourne une promesse qui est résolue dès que la réponse est disponible
+
+    // .then(r => r.text()) // méthode 'text' qui retourne une promesse avec une représentation textuelle du body
+    .then(r => r.json()) // méthode 'json' retourne le corps de la réponse parsé en JSON
+    .then(body => console.log('fetch body:',body)) // on affiche le body
+
+
+</script>
+
+</head>
+<body>
+    <a href="https://developer.mozilla.org/fr/docs/Glossary/DOM">DOCUMENTATION MDN - METHODE FETCH</a>
+    <a href="https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Global_Objects/JSON">DOCUMENTATION MDN - JSON</a>
+
+</body>
+</html>

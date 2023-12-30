@@ -18,7 +18,7 @@ const MINUTES = 4
 const SECONDS = 5
 
 function addDays (date, days) {
-    // La ligne ci-dessous est primoidiale : on va créer une nouvelle date pour éviter la mutation, c'est à la modification de l'objet original
+    // La ligne ci-dessous est primoridiale : on va créer une nouvelle date pour éviter la mutation, c'est à la modification de l'objet original
     const newDate = new Date(date.getTime())
     newDate.setDate(date.getDate() + days)
     return newDate
