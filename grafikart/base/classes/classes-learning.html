@@ -17,12 +17,20 @@ const moyenne = (notes) => {
 }
 
     class Student {
+
+        // Propriétés ; on ajoute un dièze '#' avant la propriété désirée pour la rendre privée
         ecole = 'Jules Ferry'
         _notes = []
 
+        #target
+        #gender
+
+        // Constructeur ; on défini les 'this' avec les propriétés déclarées en amont
         constructor (firstname, lastname) {
             this.firstname = firstname
             this.lastname = lastname
+            this.#target = target
+            this.#gender = gender
     }
 
     set notes (v) {
