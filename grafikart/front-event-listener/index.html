@@ -8,13 +8,49 @@
     <title>Front-end - Les écouteurs d'évènements</title>
     <h1>Front-end - Les écouteurs d'évènements</h1>
     <script src="./app.js" type="module"></script>
+    <style>
+        div {
+            width: 100px;
+            height: 100px;
+            background-color: brown;
+        }
+
+        .spoiler {
+            background-color: black;
+            color: black;
+            cursor: pointer;
+        }
+
+        .spoiler::selection {
+            color: rgba(0, 0, 0, 0);
+        }
+
+    </style>
 </head>
 <body>
-    <button>
-        <span>Bonjour</span>
-    </button>
+    <!-- <div>
+        <button>Propagation</button>
+    </div>
+    <button>Bonjour</button>
+    <button>Bonjour les gens</button> -->
+
+    <form action="">
+        <input type="text" name="firstname">
+        <input id="checkbox" type="checkbox" name="firstname">
+        <select name="lastname" >
+            <option value="Value 1">Option 1</option>
+            <option value="Value 2">Option 2</option>
+            <option value="Value 3">Option 3</option>
+        </select>
+        <button>Valider</button>
+    </form>
+
+    <p>
+        Lorem ipsum dolor <span class="spoiler">sit amet consectetur</span> adipisicing elit. 
+        Quam, aut inventore iure ipsa porro ab. Aut vero natus similique laborum deserunt autem, 
+        accusamus velit magni sapiente <span class="spoiler">recusandae totam</span> iste quibusdam.
+    </p>
     
     <a href="https://developer.mozilla.org/fr/docs/Web/API/EventTarget">DOCUMENTATION MDN - EventTarget</a>
-    
 </body>
 </html>

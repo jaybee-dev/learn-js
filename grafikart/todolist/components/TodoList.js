@@ -42,6 +42,7 @@ export class TodoList {
     this.#listElement = element.querySelector('.list-group')
         for (let todo of this.#todos) {
             const t = new TodoListItem(todo)
+            // debugger
             this.#listElement.append(t.element)
         }
     element.querySelector('form').addEventListener('submit', e => this.onSubmit(e))
@@ -68,7 +69,13 @@ export class TodoList {
         }
         const item = new TodoListItem(todo)
         this.#listElement.prepend(item.element)
+        this.#todos.push(todo)
+        this.#onUpdate()
         form.reset() // la méthode 'reset' permet de réinitialiser le formulaire à la soumission
+    }
+
+    #onUpdate () {
+        localStorage.setItem('todos', JSON.stringify(this.#todos))
     }
 
     /**

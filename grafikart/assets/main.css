@@ -10,7 +10,8 @@ html,body {
 body {
     background-color: #1c1c1e;
     color: #fefefe;
-    
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
 }
 
 h1, a {
@@ -37,4 +38,8 @@ iframe {
 
 .cyan {
     color: cyan;
+}
+
+.no-dots {
+    list-style: none;
 }

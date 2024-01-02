@@ -4,6 +4,11 @@ import { createElement } from "./functions/dom.js";
 
 try {
     const todos = await fetchJSON ('https://jsonplaceholder.typicode.com/todos?_limit=5')
+    const todosInStorage = localStorage.getItem('todos')?.toString()
+    // const todos = []
+    if (todosInStorage === null) {
+        todos = JSON.parse(todosInStorage)
+    }
     const list = new TodoList(todos)
     list.appendTo(document.querySelector('#todolist'))
 } catch (e) {
