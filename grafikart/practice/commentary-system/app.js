@@ -34,6 +34,11 @@ class InfinitePagination {
         })
         this.#observer.observe(element)
     }
+
+    /**
+     * This function load more content when user scrolls down ; loader will be replaced by fetched new content
+     * @returns {DocumentFragment}
+     */
     async #loadMore() { // attention, fonction asynchrone
         if (this.#loading) { // grâce à #loading, on gère le cas des connexions lentes et on évite d'envoyer plusieurs fois la requête du fetch tant que rien n'est afficher
             return
@@ -50,6 +55,7 @@ class InfinitePagination {
             this.#target.append(commentElement)
         }
         this.#loading = false
+
     }
 }
 
